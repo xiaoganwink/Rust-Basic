@@ -34,18 +34,14 @@ pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // Apply the `capitalize_first` function again to a slice of string slices.
 // Return a single string.
 // ["hello", " ", "world"] -> "Hello World"
-pub fn capitalize_words_string(words: &[&str]) -> String {
-    let non_empty_words: Vec<&str> = words
-        .iter() // Iterate over references to words (&&str)
-        .filter(|&&word| !word.trim().is_empty()) // Dereference the double reference &&str to &str
-        .collect(); // Collect into a Vec<&str>
 
-    // Capitalize each word and join them into a single string
-    non_empty_words
-        .iter() // Iterate over &str
-        .map(|&word| capitalize_first(word)) // Capitalize each word
-        .collect::<Vec<String>>() // Collect into Vec<String>
-        .join(" ") // Join the words with spaces
+fn capitalize_words_string(words: &[&str]) -> String {
+    // ???
+    words
+        .iter()
+        .map(|&word| capitalize_first(word))
+        .collect::<String>()
+    // Concatenate all strings into one
 }
 
 #[cfg(test)]
